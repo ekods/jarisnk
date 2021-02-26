@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 
 import { Container, Row, Col } from 'react-bootstrap';
-import Header from '../Header';
 import List from '../List';
-import Content from '../Content';
+import ContentMymovie from './ContentMymovie';
 
 
 
@@ -17,7 +16,7 @@ class Mymovie extends Component {
               <List />
             </Col>
             <Col xs={12} md={9}>
-              <Content />
+              <ContentMymovie />
             </Col>
           </Row>
         </Container>

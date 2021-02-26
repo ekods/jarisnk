@@ -5,8 +5,7 @@ import axios from "axios";
 import moment from 'moment';
 
 
-
-class Content extends Component {
+class ContentMymovie extends Component {
   state = {
     movie: [],
     isLoading: true,
@@ -55,7 +54,7 @@ class Content extends Component {
               const release_date = movie.release_date;
 
               return (
-                <Col xs={6} md={3}>
+                <Col xs={6} md={4}>
                   <div id={id} className="item-movie">
                     <div className="poster" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${poster_path})`}}></div>
                     <div className="p-3 short-detail-movie">
@@ -77,4 +76,4 @@ class Content extends Component {
   }
 }
 
-export default Content;
+export default ContentMymovie;
