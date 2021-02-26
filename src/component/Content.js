@@ -3,10 +3,12 @@ import React, { Component } from "react";
 import { Row, Col } from 'react-bootstrap';
 import axios from "axios";
 import moment from 'moment';
+import $ from 'jquery';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
-
-class Content extends Component {
+class ContentHome extends Component {
   state = {
     movie: [],
     isLoading: true,
@@ -39,24 +41,37 @@ class Content extends Component {
 
   componentDidMount() {
     this.getMovie();
+
+    $('.card__share > a').on('click', function(e){
+      e.preventDefault() // prevent default action - hash doesn't appear in url
+        $(this).parent().find( 'div' ).toggleClass( 'card__social--active' );
+      $(this).toggleClass('share-expanded');
+    });
   }
 
 
   render() {
     const { isLoading, movie } = this.state;
+
     return (
       <React.Fragment>
         <Row>
-          {!isLoading ? (
+        {!isLoading ? (
             movie.map(movie => {
               const { poster_path } = movie;
-              const short_overview = movie.overview.substring(0, 50) + '...';
               const id = movie.id;
               const release_date = movie.release_date;
+              const short_overview = movie.overview.substring(0, 50) + '...';
 
               return (
                 <Col xs={6} md={3}>
                   <div id={id} className="item-movie">
+                    <div className="card_add">
+                      <span className="share-toggle share-icon">
+                        <FontAwesomeIcon icon={faPlus} size="lg" />
+                      </span>
+                    </div>
+
                     <div className="poster" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${poster_path})`}}></div>
                     <div className="p-3 short-detail-movie">
                       <p>
@@ -77,4 +92,4 @@ class Content extends Component {
   }
 }
 
-export default Content;
+export default ContentHome;

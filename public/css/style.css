@@ -18,7 +18,7 @@ body {
   box-shadow: rgb(0 0 0 / 65%) 3px 3px 10px;
   overflow: hidden;
   margin-bottom: 40px;
-  background: #fff;
+  background: rgb(222, 222, 220);
 }
 
 
@@ -28,4 +28,48 @@ body {
 
 .navbar-dark .navbar-nav .nav-link.active {
   color: red;
+}
+
+.list-icon {
+  position: absolute;
+  right: 0;
+}
+
+.card_add {
+	float: right;
+	position: relative;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.share-icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    line-height: 14px;
+    padding: 14px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    outline: 0;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 12%), 0 2px 4px rgb(0 0 0 / 24%);
+}
+
+.share-icon:hover,
+.share-icon:focus {
+  box-shadow:
+      0 3px 6px rgba(0,0,0, 0.12),
+      0 3px 6px rgba(0,0,0, 0.24);
+
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.share-toggle {
+	z-index: 2;
 }

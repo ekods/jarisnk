@@ -4,6 +4,9 @@ import { Row, Col } from 'react-bootstrap';
 import axios from "axios";
 import moment from 'moment';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
 
 class ContentMymovie extends Component {
   state = {
@@ -49,13 +52,18 @@ class ContentMymovie extends Component {
           {!isLoading ? (
             movie.map(movie => {
               const { poster_path } = movie;
-              const short_overview = movie.overview.substring(0, 50) + '...';
               const id = movie.id;
               const release_date = movie.release_date;
+              const short_overview = movie.overview.substring(0, 50) + '...';
 
               return (
                 <Col xs={6} md={4}>
                   <div id={id} className="item-movie">
+                    <div className="card_add">
+                      <span className="share-toggle share-icon">
+                        <FontAwesomeIcon icon={faTimes} size="lg" />
+                      </span>
+                    </div>
                     <div className="poster" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${poster_path})`}}></div>
                     <div className="p-3 short-detail-movie">
                       <p>

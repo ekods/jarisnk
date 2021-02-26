@@ -7,6 +7,8 @@ import {
   NavbarBrand,
   Nav,
 } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faList } from '@fortawesome/free-solid-svg-icons';
 
 
 class Header extends Component {
@@ -35,16 +37,16 @@ class Header extends Component {
                       <NavLink
                       to="/"
                       activeClassName="activeRoute"
-                      className="nav-link text-uppercase">
-                        Discover
+                      className="nav-link text-bold">
+                        <FontAwesomeIcon icon={faHome} />  Discover
                       </NavLink>
                     </li>
                     <li>
                       <NavLink
                       to="/my-movie"
                       activeClassName="activeRoute"
-                      className="nav-link text-uppercase">
-                        My Movie
+                      className="nav-link text-bold">
+                        <FontAwesomeIcon icon={faList} /> My Movie
                       </NavLink>
                     </li>
                   </ul>
