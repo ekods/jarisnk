@@ -10,8 +10,16 @@ const AppRouter = () => (
   <Router>
     <Header />
 
-    <Route path="/" exact component={App} />
-    <Route path="/my-movie" component={Mymovie} />
+    <div className="py-5" style={{
+      backgroundImage: `url(${process.env.PUBLIC_URL}/assortment-cinema-elements-red-background-with-copy-space2.jpg)`,
+      backgroundPosition: 'center right',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundAttachment: 'fixed'
+    }}>
+      <Route path="/" exact component={App} />
+      <Route path="/my-movie" component={Mymovie} />
+    </div>  
 
     <Footer />
   </Router>

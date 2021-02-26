@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   Container,
   Row,
@@ -12,11 +12,11 @@ import {
 class Header extends Component {
   render() {
     return(
-      <header className="mb-4 bg-light">
+      <header className="bg-dark fixed-top">
         <Container>
           <Row>
             <Col sm="12" md="12" lg="12">
-              <Nav className="navbar navbar-light navbar-expand-sm">
+              <Nav className="navbar navbar-dark navbar-expand-sm">
                 <NavbarBrand>
                   <a className="navbar-brand" href="/">
                     <img
@@ -32,10 +32,20 @@ class Header extends Component {
                 <div className="collapse navbar-collapse" id="navbar-list-2">
                   <ul className="navbar-nav">
                     <li className="nav-item">
-                      <Link to="/" className="nav-link">Home</Link>
+                      <NavLink
+                      to="/"
+                      activeClassName="activeRoute"
+                      className="nav-link text-uppercase">
+                        Discover
+                      </NavLink>
                     </li>
                     <li>
-                      <Link to="/my-movie" className="nav-link">My Movie</Link>
+                      <NavLink
+                      to="/my-movie"
+                      activeClassName="activeRoute"
+                      className="nav-link text-uppercase">
+                        My Movie
+                      </NavLink>
                     </li>
                   </ul>
                 </div>

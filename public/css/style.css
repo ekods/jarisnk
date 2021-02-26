@@ -1,6 +1,11 @@
+body {
+  min-height: 75rem;
+  padding-top: 6rem;
+}
+
 .poster {
   width: 100%;
-  padding-top: 160%;
+  padding-top: 140%;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: cover !important;
@@ -8,13 +13,19 @@
 
 
 .item-movie {
-  box-shadow: 0 4px 4px rgb(0 0 0 / 12%), 0 0 10px rgb(0 0 0 / 6%);
-  border-radius: 6px;
+  background-color: rgb(222, 222, 220);
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 65%) 3px 3px 10px;
   overflow: hidden;
   margin-bottom: 40px;
+  background: #fff;
 }
 
 
 .short-detail-movie {
   min-height: 180px;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: red;
 }

@@ -8,7 +8,6 @@ import Content from './Content';
 class App extends Component {
   render() {
     return(
-      <div>
         <Container>
           <Row>
             <Col xs={12} md={12}>
@@ -16,7 +15,6 @@ class App extends Component {
             </Col>
           </Row>
         </Container>
-      </div>
     );
   }
 }
