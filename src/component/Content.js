@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 
 import {
-  Container,
   Row,
   Col,
-  NavbarBrand,
-  Nav,
 } from 'react-bootstrap';
 import moment from 'moment';
 import FontAwesome from 'react-fontawesome'
