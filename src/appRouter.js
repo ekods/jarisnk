@@ -19,7 +19,7 @@ const AppRouter = () => (
     }}>
       <Route path="/" exact component={App} />
       <Route path="/my-movie" component={Mymovie} />
-    </div>  
+    </div>
 
     <Footer />
   </Router>

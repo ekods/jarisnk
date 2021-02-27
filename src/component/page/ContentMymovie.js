@@ -50,14 +50,14 @@ class ContentMymovie extends Component {
       <React.Fragment>
         <Row>
           {!isLoading ? (
-            movie.map(movie => {
+            movie.map((movie, index) => {
               const { poster_path } = movie;
               const id = movie.id;
               const release_date = movie.release_date;
               const short_overview = movie.overview.substring(0, 50) + '...';
 
               return (
-                <Col xs={6} md={4}>
+                <Col xs={6} md={4} key={id}>
                   <div id={id} className="item-movie">
                     <div className="card_add">
                       <span className="share-toggle share-icon">

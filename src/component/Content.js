@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { Row, Col } from 'react-bootstrap';
 import axios from "axios";
 import moment from 'moment';
-import $ from 'jquery';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -41,12 +40,6 @@ class ContentHome extends Component {
 
   componentDidMount() {
     this.getMovie();
-
-    $('.card__share > a').on('click', function(e){
-      e.preventDefault() // prevent default action - hash doesn't appear in url
-        $(this).parent().find( 'div' ).toggleClass( 'card__social--active' );
-      $(this).toggleClass('share-expanded');
-    });
   }
 
 
@@ -57,15 +50,15 @@ class ContentHome extends Component {
       <React.Fragment>
         <Row>
         {!isLoading ? (
-            movie.map(movie => {
+            movie.map((movie,index) => {
               const { poster_path } = movie;
               const id = movie.id;
               const release_date = movie.release_date;
               const short_overview = movie.overview.substring(0, 50) + '...';
 
               return (
-                <Col xs={6} md={3}>
-                  <div id={id} className="item-movie">
+                <Col xs={6} md={3} key={id}>
+                  <div className="item-movie">
                     <div className="card_add">
                       <span className="share-toggle share-icon">
                         <FontAwesomeIcon icon={faPlus} size="lg" />
