@@ -17,7 +17,7 @@ class ItemMovie extends Component {
       <div className="item-movie-inner">
         <div className="card_add">
           <span className="share-toggle share-icon">
-            <FontAwesome className="fa fa-times" name="fa-times" />
+            <FontAwesome className="fa fa-plus" name="fa-plus" />
           </span>
         </div>
         <div className="poster" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${this.props.movie.poster_path})`}}></div>
