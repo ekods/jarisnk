@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import axios from "axios";
 import moment from 'moment';
 import {
   Row,
   Col,
+  Dropdown,
 } from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome'
 
@@ -15,11 +15,20 @@ class ItemMovie extends Component {
   return (
     <Col xs={6} md={3}>
       <div className="item-movie-inner">
-        <div className="card_add">
-          <span className="share-toggle share-icon">
-            <FontAwesome className="fa fa-plus" name="fa-plus" />
-          </span>
-        </div>
+
+        <Dropdown>
+          <Dropdown.Toggle className="card_add">
+            <span className="share-toggle share-icon">
+              <FontAwesome className="fa fa-plus" name="fa-plus" />
+            </span>
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="#">Add to <b>List 1</b></Dropdown.Item>
+            <Dropdown.Item href="#">Add to <b>List 2</b></Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
         <div className="poster" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${this.props.movie.poster_path})`}}></div>
         <div className="p-3 short-detail-movie">
           <p>

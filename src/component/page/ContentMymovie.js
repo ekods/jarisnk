@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 import axios from "axios";
 import moment from 'moment';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import {
+  Row,
+  Col,
+  Dropdown,
+} from 'react-bootstrap';
 
 import FontAwesome from 'react-fontawesome'
 
@@ -47,40 +51,28 @@ class ContentMymovie extends Component {
     const { movie } = this.state;
     return (
       <React.Fragment>
-        <div
-          id="scrollableDiv">
-          {/*Put the scroll bar always on the bottom*/}
-            <InfiniteScroll
-              dataLength={this.state.movie.length}
-              next={this.fetchMoreData}
-              inverse={true}
-              className="d-flex flex-wrap"
-              hasMore={true}
-              loader={<h4>Loading...</h4>}
-              scrollableTarget="scrollableDiv"
-            >
-              {movie.map((movie, index) => (
+        <Row>
+          {movie.map((movie, index) => (
 
-                <div key={movie.id} className="item-movie p-3">
-                  <div className="item-movie-inner">
-                    <div className="card_add">
-                      <span className="share-toggle share-icon">
-                        <FontAwesome className="fa fa-times" name="fa-times" />
-                      </span>
-                    </div>
-                    <div className="poster" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path})`}}></div>
-                    <div className="p-3 short-detail-movie">
-                      <p>
-                        <b>{movie.title} - {moment(movie.release_date).format("YYYY")}</b>
-                      </p>
-                      <small>{movie.overview.substring(0, 100) + '...'}</small>
-                    </div>
-                  </div>
+            <Col xs={6} md={4}>
+              <div className="item-movie-inner">
+                <div className="card_add">
+                  <span className="share-toggle share-icon">
+                    <FontAwesome className="fa fa-times" name="fa-times" />
+                  </span>
                 </div>
+                <div className="poster" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path})`}}></div>
+                <div className="p-3 short-detail-movie">
+                  <p>
+                    <b>{movie.title} - {moment(movie.release_date).format("YYYY")}</b>
+                  </p>
+                  <small>{movie.overview.substring(0, 100) + '...'}</small>
+                </div>
+              </div>
+            </Col>
 
-              ))}
-            </InfiniteScroll>
-          </div>
+          ))}
+        </Row>
       </React.Fragment>
     );
   }

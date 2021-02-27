@@ -12,22 +12,6 @@ body {
 }
 
 
-.item-movie {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 33.333333%;
-  -ms-flex: 0 0 33.333333%;
-  flex: 0 0 33.333333%;
-  max-width: 33.333333%;
-}
-
-.item-movie.col3 {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 25%;
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
-  max-width: 25%;
-}
-
 .item-movie-inner {
   background-color: rgb(222, 222, 220);
   border-radius: 5px;
@@ -57,6 +41,21 @@ body {
   right: 10px;
   top: 10px;
   cursor: pointer;
+  padding: 0;
+  background-color: transparent !important;
+  border: none !important;
+  color: blue !important;
+}
+
+.card_add.dropdown-toggle::after {
+  border: none;
+}
+
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border: none !important;
 }
 
 .share-icon {
@@ -79,28 +78,13 @@ body {
       0 3px 6px rgba(0,0,0, 0.12),
       0 3px 6px rgba(0,0,0, 0.24);
 
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .share-toggle {
 	z-index: 2;
-}
-
-
-
-@media screen and (max-width: 1080px) {
-
-  .item-movie.col3,
-  .item-movie {
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 0 50%;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-
 }
