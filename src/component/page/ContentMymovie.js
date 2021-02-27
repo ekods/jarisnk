@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 
-import { Row, Col } from 'react-bootstrap';
 import axios from "axios";
 import moment from 'moment';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import FontAwesome from 'react-fontawesome'
 
 
 class ContentMymovie extends Component {
@@ -17,7 +16,7 @@ class ContentMymovie extends Component {
 
   getMovie() {
     axios
-      .get("https://api.themoviedb.org/3/discover/movie?page=1&api_key=943cc4f77f40afc90157127eac5065c1")
+      .get("https://api.themoviedb.org/3/discover/movie?api_key=943cc4f77f40afc90157127eac5065c1")
       .then(response =>
         response.data.results.map(movie => ({
           id: `${movie.id}`,
@@ -45,40 +44,43 @@ class ContentMymovie extends Component {
 
 
   render() {
-    const { isLoading, movie } = this.state;
+    const { movie } = this.state;
     return (
       <React.Fragment>
-        <Row>
-          {!isLoading ? (
-            movie.map((movie, index) => {
-              const { poster_path } = movie;
-              const id = movie.id;
-              const release_date = movie.release_date;
-              const short_overview = movie.overview.substring(0, 50) + '...';
+        <div
+          id="scrollableDiv">
+          {/*Put the scroll bar always on the bottom*/}
+            <InfiniteScroll
+              dataLength={this.state.movie.length}
+              next={this.fetchMoreData}
+              inverse={true}
+              className="d-flex flex-wrap"
+              hasMore={true}
+              loader={<h4>Loading...</h4>}
+              scrollableTarget="scrollableDiv"
+            >
+              {movie.map((movie, index) => (
 
-              return (
-                <Col xs={6} md={4} key={id}>
-                  <div id={id} className="item-movie">
+                <div key={movie.id} className="item-movie p-3">
+                  <div className="item-movie-inner">
                     <div className="card_add">
                       <span className="share-toggle share-icon">
-                        <FontAwesomeIcon icon={faTimes} size="lg" />
+                        <FontAwesome className="fa fa-times" name="fa-times" />
                       </span>
                     </div>
-                    <div className="poster" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${poster_path})`}}></div>
+                    <div className="poster" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path})`}}></div>
                     <div className="p-3 short-detail-movie">
                       <p>
-                        <b>{movie.title} - {moment(release_date).format("YYYY")}</b>
+                        <b>{movie.title} - {moment(movie.release_date).format("YYYY")}</b>
                       </p>
-                      <small>{short_overview}</small>
+                      <small>{movie.overview.substring(0, 100) + '...'}</small>
                     </div>
                   </div>
-                </Col>
-              );
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
-        </Row>
+                </div>
+
+              ))}
+            </InfiniteScroll>
+          </div>
       </React.Fragment>
     );
   }

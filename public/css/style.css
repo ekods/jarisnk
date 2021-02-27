@@ -13,6 +13,22 @@ body {
 
 
 .item-movie {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 33.333333%;
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+.item-movie.col3 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 25%;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.item-movie-inner {
   background-color: rgb(222, 222, 220);
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 65%) 3px 3px 10px;
@@ -45,8 +61,8 @@ body {
 
 .share-icon {
     display: inline-block;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     line-height: 14px;
     padding: 14px;
     text-align: center;
@@ -72,4 +88,19 @@ body {
 
 .share-toggle {
 	z-index: 2;
+}
+
+
+
+@media screen and (max-width: 1080px) {
+
+  .item-movie.col3,
+  .item-movie {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
 }
