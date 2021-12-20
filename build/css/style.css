@@ -1,0 +1,90 @@
+body {
+  min-height: 75rem;
+  padding-top: 6rem;
+}
+
+.poster {
+  width: 100%;
+  padding-top: 140%;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+
+.item-movie-inner {
+  background-color: rgb(222, 222, 220);
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 65%) 3px 3px 10px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  background: rgb(222, 222, 220);
+}
+
+
+.short-detail-movie {
+  min-height: 180px;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: red;
+}
+
+.list-icon {
+  position: absolute;
+  right: 0;
+}
+
+.card_add {
+	float: right;
+	position: relative;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent !important;
+  border: none !important;
+  color: blue !important;
+}
+
+.card_add.dropdown-toggle::after {
+  border: none;
+}
+
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.share-icon {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    line-height: 14px;
+    padding: 14px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    outline: 0;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 12%), 0 2px 4px rgb(0 0 0 / 24%);
+}
+
+.share-icon:hover,
+.share-icon:focus {
+  box-shadow:
+      0 3px 6px rgba(0,0,0, 0.12),
+      0 3px 6px rgba(0,0,0, 0.24);
+
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.share-toggle {
+	z-index: 2;
+}
